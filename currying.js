@@ -26,3 +26,21 @@ let multiply1 = function(x) {
 
 let multiplyBy2 = multiply1(2)
 multiplyBy2(2)
+
+
+// TODO: sum(1)(2)(3)(4)......(n)
+
+// Break into smaller parts to analyse
+// ? 1. sum(1)(2)(3)
+function sum (a) {
+    return function (b) {
+        if (b)
+            return sum(a+b)
+        return a
+    }
+}
+
+// ES6 format
+const sum1 = a => b => b? sum1(a+b): a
+
+console.log(sum1(1)(2)(3)())
